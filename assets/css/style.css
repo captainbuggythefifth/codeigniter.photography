@@ -1,0 +1,238 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 18, 2016, 6:34:26 PM
+    Author     : Web Designer
+*/
+
+body{
+    background: url(/assets/images/6815308-wedding-pictures.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+/*    height: 700px;*/
+}
+.custom-navbar-bar{
+    background-color: transparent !important;
+}
+.content-container{
+    position: absolute;
+    top: 240px;
+    width: 100%;
+}
+.navbar-brand{
+    padding: 0;
+}
+.navbar-brand img{
+    width: 94px
+}
+.navbar .navbar-nav>li>a{
+    color: #777
+}
+.welcome-message-container{
+    background-color: pink;
+    opacity: 0.5;
+    border: 5px solid wheat;
+    height: 200px;
+}
+.welcome-message{
+    left: 150px;
+    position: absolute;
+    top: 50px;
+    text-align: center
+}
+.welcome-span{
+    color: whitesmoke;
+    
+}
+.welcome-span-first{
+    font-style: italic;
+    font-size: 30px;
+    font-weight: 100
+}
+.welcome-span-second{
+    font-style: inherit;
+    font-size: 50px;
+    font-weight: 900;
+}
+.carousel-inner {
+    max-height: 600px
+}
+.team-container{
+    background-color: #F48FB1; 
+    height: auto;
+    border-bottom: 10px solid pink;
+}
+.memories-container{
+    height: auto;
+    background-color: beige; margin-top: 300px;
+    border-top: 10px solid pink;
+    border-bottom: 10px solid pink;
+}
+.custom-img-thumbnail{
+    width: 220px;
+    margin-top: 50px;
+}
+.thumbnail{
+    background-color: #F8BBD0 !important;
+    border: 4px solid wheat !important;
+    border-radius: 0;
+}
+.custom-fa{
+    padding-top: 15px
+}
+.custom-btn-facebook i{
+    color: #3B579D
+}
+.custom-btn-twitter i{
+    color: #00B6F1
+}
+.custom-btn-instagram i{
+    color: black
+}
+.caption{
+    text-align: center
+}
+.custom-btn{
+    margin: 10px !important;
+}
+.carousel-indicators .active{
+    background-color: #F48FB1;
+    width: 22px;
+    height: 22px;
+}
+.carousel-indicators{
+    display: inline-block;
+    width: 10px;
+}
+.carousel-indicators li{
+    width: 20px;
+    height: 20px;
+    background-color: wheat;
+    border: none;
+}
+.no-padding-lg-md{
+    padding-left: 0;
+    padding-right: 0
+}
+.padding-3px{
+    padding: 3px;
+}
+.services-container{
+    background-color: #E5E7E1;
+    min-height: 800px;
+    border-top: 10px solid pink;
+    border-bottom: 10px solid pink;
+}
+
+.contact-us-container{
+    border-bottom: 10px solid pink;
+    padding-bottom: 50px;
+}
+
+.testimonial-container{
+    padding-top: 200px;
+    min-height: 1500px;
+    background-color: white;
+    opacity: .5;
+
+}
+.tilted{
+    transform: rotate(-45deg);
+}
+.testimonial-red{
+    height: 400px;
+    width: 400px;
+    background-color: red;
+    opacity: .5;
+}
+.testimonial-blue{
+    height: 400px;
+    width: 400px;
+    background-color: deepskyblue;
+    opacity: .5;
+}
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+blockquote p {
+    display: inline;
+}
+.testimonials{
+    top: 150px;
+    position: absolute;
+}
+
+.footer-container{
+    min-height: 150px;
+    border-top: 10px solid #F48FB1;
+    padding-top: 50px;
+    background-color: whitesmoke;
+}
+.social-media ul{
+    list-style: none;
+}
+.social-media ul li{
+    display: inline;
+    padding: 10px;
+}
+.footer-container a{
+    text-decoration: none;
+}
+.footer-nav-container ul{
+    float: right;
+}
+.footer-nav-container ul{
+    list-style: none;
+    display: flex;
+}
+.footer-nav-container ul li{
+    padding: 20px 10px;
+}
+.custom-btn-fab{
+    width: 100px !important;
+    height: 100px !important;
+}
+.custom-btn-fab i{
+    font-size: 52px;
+    width: 100px;
+    height: 100px;
+    left: 37% !important;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 479px){
+    .welcome-message{
+        left: 0;
+    }
+    .welcome-message-container{
+        height: 380px;
+    }
+    .content-container{
+        top: 170px;
+    }
+    .memories-container{
+        margin-top: 60px;
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px){  }
+
+@media only screen and (min-width: 768px) and (max-width: 991px){  }
+
+@media only screen and (min-width: 992px) and (max-width: 1999px){  }
