@@ -61,6 +61,10 @@ $route['logout'] = 'AuthController/logout';
 $route['users'] = 'UsersController/index';
 $route['users'] = 'UsersController/index';
 
+$route['users/(:any)']['get'] = 'UsersController/getUpdate/$1';
+$route['users/(:any)']['post'] = 'UsersController/postUpdate/$1';
+
+$route['albums'] = 'AlbumsController/index';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

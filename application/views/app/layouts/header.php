@@ -34,6 +34,8 @@
     </style>
 </head>
 <body id="app-layout">
+
+
 <div class="background-picture">
     <nav class="navbar navbar-default navbar-static-top custom-navbar-bar">
         <div class="container-fluid">

@@ -5,3 +5,5 @@
     <a href="/services" class="btn btn-info btn-fab custom-btn-fab"><i class="material-icons">grade</i></a>
     <a href="/testimonies" class="btn btn-warning btn-fab custom-btn-fab"><i class="material-icons">grade</i></a>
 </div>
+
+<a href="#" class="btn btn-warning btn-fab custom-btn-fab facebook-login">FACEBOOK</a>

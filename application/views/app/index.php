@@ -297,16 +297,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="heart-container col-sm-4 col-md-4">
-                <div class="col-sm-6 col-md-9 col-md-offset-3">
-                    <i class="fa fa-heart fa-2x" aria-hidden="true" style="color: palevioletred"></i>
-                    <i class="fa fa-heart fa-5x" aria-hidden="true" style="color: palevioletred"></i>
-                    <i class="fa fa-heart fa-3x" aria-hidden="true" style="color: palevioletred"></i>
-                </div>
 
-
-
-            </div>
             <div class="footer-nav-container col-sm-12 col-md-6">
                 <div style="float: right">
                     <p>copyright 2016 by coleendesigns.com</p>
@@ -328,6 +319,16 @@
                         <a href="#contact-us">Contact Us</a>
                     </li>
                 </ul>
+
+            </div>
+            <div class="heart-container col-sm-4 col-md-4 col-md-offset-4">
+                <div class="col-sm-6 col-md-9 col-md-offset-3">
+                    <i class="fa fa-heart fa-2x" aria-hidden="true" style="color: palevioletred"></i>
+                    <i class="fa fa-heart fa-5x" aria-hidden="true" style="color: palevioletred"></i>
+                    <i class="fa fa-heart fa-3x" aria-hidden="true" style="color: palevioletred"></i>
+
+                </div>
+                <div class="fb-page" data-href="https://www.facebook.com/Coleen-Event-Productions-Designs-294062294283138" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Coleen-Event-Productions-Designs-294062294283138" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Coleen-Event-Productions-Designs-294062294283138">Coleen Event Productions &amp; Designs</a></blockquote></div>
 
             </div>
         </div>

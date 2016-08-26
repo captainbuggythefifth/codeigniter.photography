@@ -74,11 +74,33 @@ class UsersModel extends CI_Model{
         }
 
     }
+    function getUserByID($iUserID){
+        $aResult = array(
+            'status' => false,
+            'data'  => array()
+        );
+
+        $this->db->where('id', $iUserID);
+        /*$this->db->where('password', $this->encryption->encrypt($aUser['password']));*/
+        $result = $this->db->get($this->table);
+        if($result->num_rows() > 0){
+            $aResult['data'] = $this->getCleaned($result->row_array());
+            $aResult['status'] = true;
+        }
+        else{
+            $aResult['data'] = array(
+                'reason' => "User does not exist"
+            );
+            $aResult['status'] = false;
+        }
+        return $aResult;
+    }
 
     function getCleaned($aUser){
         $aRemove = array(
             'password',
         );
+
         foreach ($aRemove as $removeElement => $removeKey){
             if(array_key_exists($removeKey, $aUser)){
                 unset($aUser[$removeKey]);
@@ -94,6 +116,11 @@ class UsersModel extends CI_Model{
             $aUsers[$i] = $this->getCleaned($aUsers[$i]);
         }
         return $aUsers;
+    }
+
+    function update($aUser){
+        $this->db->where('id', $aUser['id']);
+        $result = $this->db->update($aUser);
     }
 
 }
