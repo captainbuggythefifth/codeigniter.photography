@@ -62,7 +62,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     <!--@if (Auth::guest())-->
-                    <?php if(!$this->authlibrary->checkLoggedIn()):?>
+                    <?php if(!$this->AuthLibrary->checkLoggedIn()):?>
                         <li><a href="#memories">Memories</a></li>
                         <li><a href="#team">Team</a></li>
                         <li><a href="#services">Services</a></li>

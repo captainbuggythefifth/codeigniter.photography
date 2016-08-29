@@ -22,12 +22,18 @@ class ManagerController extends CI_Controller {
         parent::__construct();
         $this->load->model('UsersModel');
         $this->load->library('encryption');
-        $this->load->library('AuthLibrary');
+        $this->load->library('AuthLibrary', null, 'AuthLibrary');
+        $this->load->library('FacebookLibrary', null, 'FacebookLibrary');
     }
 
     public function index(){
+
+        $sLoginUrl = $this->FacebookLibrary->getRedirectLoginHelper();
+
+        $aData['sLoginUrl'] = $sLoginUrl;
+
         $this->load->view('app/layouts/header');
-        $this->load->view('app/manage/index');
+        $this->load->view('app/manage/index', $aData);
         $this->load->view('app/layouts/footer');
     }
 }

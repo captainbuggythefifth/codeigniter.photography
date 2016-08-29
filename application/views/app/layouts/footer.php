@@ -105,7 +105,7 @@
                                 for(var j = 0; j < aPhotos.length; j++){
                                     console.log(aPhotos[j]);
                                     /*var url = "https://graph.facebook.com/v2.7/" + aPhotos[j].id + "/picture?access_token=" + sFBExchangeToken;*/
-                                    FB.api(aPhotos[j].id, {fields: 'picture', access_token: sFBExchangeToken}, function(result){
+                                    FB.api(aPhotos[j].id, {fields: 'picture', access_token: sFBExchangeToken, type : 'large'}, function(result){
                                         console.log("API: ", result);
                                     });
                                 }
@@ -128,7 +128,7 @@
                     console.log('User cancelled login or did not fully authorize.');
                 }
             }, {
-                scope: 'manage_pages'
+                scope: 'manage_pages,public_profile,user_about_me,user_photos'
             });
         });
     });
@@ -138,5 +138,53 @@
 <script src="/assets/js/team/service.js"></script>
 <script src="/assets/js/team/core.js"></script>
 <script src="/assets/js/team/ui.js"></script>
+
+<script>
+    var $photos = [];
+    var currentImg = $('img');
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '1760728680865683',
+            xfbml      : true,
+            version    : 'v2.6'
+        });
+
+        var sFBExchangeToken = "<?php echo $aFacebookCredentials['sFBExchangeToken']?>";
+        for(var i = 0; i < $('img').length; i++){
+            var $this = $($('img')[i]);
+            currentImg = $($('img')[i]);
+            if($this.attr('data-source-id') !== undefined){
+                FB.api($this.attr('data-source-id'), {fields: 'picture.width(720).height(720)', access_token: sFBExchangeToken, type : 'large'}, function(result){
+                    currentImg.attr('src', result.picture);
+                    console.log(currentImg);
+                    
+                });
+            }
+        }
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+    function setImage(result, img){
+
+    }
+    $(function(){
+        /*for(var i = 0; i < $('img').length; i++){
+            var $this = $($('img')[i]);
+            if($this.attr('data-source-id') !== undefined){
+                $this.attr('src', $photos[i].picture);
+            }
+        }*/
+        console.log($photos);
+    })
+</script>
 </body>
 </html>

@@ -66,5 +66,7 @@ $route['users/(:any)']['post'] = 'UsersController/postUpdate/$1';
 
 $route['albums'] = 'AlbumsController/index';
 
+$route['facebook/login-callback'] = "FacebookController/loginCallback";
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

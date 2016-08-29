@@ -7,3 +7,4 @@
 </div>
 
 <a href="#" class="btn btn-warning btn-fab custom-btn-fab facebook-login">FACEBOOK</a>
+<a href="<?php echo $sLoginUrl; ?>" class="btn btn-warning btn-fab custom-btn-fab">FACEBOOK PHP</a>
