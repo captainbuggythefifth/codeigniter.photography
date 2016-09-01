@@ -22,7 +22,7 @@ class AuthController extends CI_Controller {
         parent::__construct();
         $this->load->model('UsersModel');
         $this->load->library('encryption');
-        $this->load->library('AuthLibrary');
+        $this->load->library('AuthLibrary', null, 'AuthLibrary');
     }
 
     public function getLogin(){

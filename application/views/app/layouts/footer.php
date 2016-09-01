@@ -147,21 +147,8 @@
         FB.init({
             appId      : '1760728680865683',
             xfbml      : true,
-            version    : 'v2.6'
+            version    : 'v2.7'
         });
-
-        var sFBExchangeToken = "<?php echo $aFacebookCredentials['sFBExchangeToken']?>";
-        for(var i = 0; i < $('img').length; i++){
-            var $this = $($('img')[i]);
-            currentImg = $($('img')[i]);
-            if($this.attr('data-source-id') !== undefined){
-                FB.api($this.attr('data-source-id'), {fields: 'picture.width(720).height(720)', access_token: sFBExchangeToken, type : 'large'}, function(result){
-                    currentImg.attr('src', result.picture);
-                    console.log(currentImg);
-                    
-                });
-            }
-        }
     };
 
     (function(d, s, id) {
@@ -173,18 +160,18 @@
     }(document, 'script', 'facebook-jssdk'));
 
 
-    function setImage(result, img){
-
-    }
-    $(function(){
-        /*for(var i = 0; i < $('img').length; i++){
+    /*$('.load-facebook-images').on('click', function () {
+        var sFBExchangeToken = "<?php echo $aFacebookCredentials['sFBExchangeToken']?>";
+        for(var i = 0; i < $('img').length; i++){
             var $this = $($('img')[i]);
+            currentImg = $($('img')[i]);
             if($this.attr('data-source-id') !== undefined){
-                $this.attr('src', $photos[i].picture);
+                FB.api($this.attr('data-source-id'), {fields: 'picture.width(720).height(720)', access_token: sFBExchangeToken, type : 'large'}, function(result){
+                    $(currentImg).attr('src', result.picture)
+                });
             }
-        }*/
-        console.log($photos);
-    })
+        }
+    })*/
 </script>
 </body>
 </html>

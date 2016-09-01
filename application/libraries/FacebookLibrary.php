@@ -4,6 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 require_once (APPPATH . "vendor/facebook/php-sdk-v4/src/Facebook/autoload.php");
 
+use Facebook\FacebookRequest;
+
 class FacebookLibrary{
 
     protected $CI;
@@ -13,7 +15,9 @@ class FacebookLibrary{
         "manage_pages",
         "public_profile",
         "user_about_me",
-        "user_photos"
+        "user_photos",
+        "publish_pages",
+        "pages_manage_cta"
     );
     public $iAppID = "1760728680865683";
     public $sAppSecret = "db6f36a2906769e3ae954516ef35d45d";
@@ -23,12 +27,9 @@ class FacebookLibrary{
         $this->oFacebook = new Facebook\Facebook([
             'app_id' => '1760728680865683',
             'app_secret'    => "db6f36a2906769e3ae954516ef35d45d",
-            'default_graph_version' => 'v2.7'
+            'default_graph_version' => 'v2.5'
         ]);
         
-        
-
-        /*$this->oFacebook->setDefaultAccessToken("EAAZABX5eRn5MBACGRK5Gr4SMU6bigFObZAcZBCR9wZC6XuNqTTHBuyvNDtLB936kZCQ8wKTTPySBDKZC0vU7NQgvNkxzrJTfKBocYCPCXkuxnVu2votipjIlul7jPu2P6nLZC6fs1wgQwjGcH5FqDwaFZAa7kxuEzkUZD");*/
     }
 
     public function getRedirectLoginHelper(){
@@ -74,7 +75,35 @@ class FacebookLibrary{
 
     public function getPictureLinkByID($iPhotoID){
         try{
-            $response = $this->oFacebook->get($iPhotoID, 'picture');
+            $response = $this->oFacebook->get($iPhotoID . '/picture?link');
+            $graphEdge = $response->getGraphObject();
+            return $this->JSONArrayToArray($graphEdge);
+        }
+        catch(Facebook\Exceptions\FacebookResponseException $e) {
+            // When Graph returns an error
+            echo 'Graph returned an error: ' . $e->getMessage();
+            exit;
+        } catch(Facebook\Exceptions\FacebookSDKException $e) {
+            // When validation fails or other local issues
+            echo 'Facebook SDK returned an error: ' . $e->getMessage();
+            exit;
+        }
+        /*$request = new FacebookRequest(
+            $session = array([
+                'fb_exchange_token' => "EAAZABX5eRn5MBANjWZCybXh3HXUkEUmLG0GdaNMT1l6ZBHhk2s0LxSqZCzUnmabY0sN1fzqwHK48GHrahobHeZCZBeTLfFUM9XXFrzD9xTJAGMvW8OkHFBXcf8Vn5aKUY7RwN2dZCNpmN34zpqDpCLpG0fpbNSKeiAZD"
+            ]),
+            'GET',
+            '/' . $iPhotoID . '/picture'
+        );
+
+        $response = $request->execute();
+        $graphObject = $response->getGraphObject();
+        return $this->JSONArrayToArray($graphObject);*/
+    }
+
+    function getPhotoOnAlbum($iAlbumID){
+        try{
+            $response = $this->oFacebook->get($iAlbumID, '?link');
             $graphEdge = $response->getGraphNode();
             return $this->JSONArrayToArray($graphEdge);
         }

@@ -1,5 +1,6 @@
+<button class="btn btn-default load-facebook-images">FACEBOOK</button>
 <?php foreach($aAlbums as $album) :?>
-    <div class="col-md-3 well" style="background-color: pink; margin-top: 50px">
+    <div class="col-md-3 well" style="background-color: pink; margin-top: 50px" data-album="<?php echo $album['id']?>">
         <div class="album-container">
             <div class="album-header-container">
                 <div class="album-header" style="text-align: center;">
@@ -9,6 +10,9 @@
                 </div>
             </div>
 
+            <?php foreach($album['aPhotos'] as $aPhoto):?>
+                <input type="hidden" class="photo-hidden-input" data-album="<?php echo $album['id']?>" value="<?php echo $aPhoto['id']?>">
+            <?php endforeach;?>
             <div class="album-top col-md-12 no-padding-lg-md">
                 <div class="album-top-left col-md-6 no-padding-lg-md padding-3px">
                     <img src="https://scontent.fmnl4-1.fna.fbcdn.net/t31.0-8/s960x960/13235201_10204268116583397_3469558818044451801_o.jpg" style="width: 100%" data-source-id="<?php echo $album['aPhotos'][0]['id']?>">

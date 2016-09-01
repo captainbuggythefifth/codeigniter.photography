@@ -32,12 +32,13 @@ class AlbumsController extends CI_Controller{
 
         for($i = 0; $i < count($aAlbums); $i++){
             $aAlbums[$i]['aPhotos'] = $this->FacebookLibrary->getPhotosOnAlbum($aAlbums[$i]['id']);
-            /*for($j = 0; $j < count($aAlbums[$i]['aPhotos']); $j++){
+            /*$aAlbums[$i]['photo'] = $this->FacebookLibrary->getPhotoOnAlbum($aAlbums[$i]['id']);*/
+            for($j = 0; $j < count($aAlbums[$i]['aPhotos']); $j++){
                 $aAlbums[$i]['aPhotos'][$j]['picture'] = $this->FacebookLibrary->getPictureLinkByID($aAlbums[$i]['aPhotos'][$j]['id']);
-            }*/
+            }
         }
 
-        //var_dump($aAlbums);die();
+        var_dump($aAlbums);die();
 
         $aData['aAlbums'] = $aAlbums;
         $aData['aFacebookCredentials'] = $aFacebookCredential;

@@ -1,21 +1,26 @@
 var team = team || {};
 
-var _token = $("input[name='_token']").val();
 team.core = {
     Binders: {
-        _getUserByName: function(e){
+        _getUsersByName: function(e){
             var $this = $(e.target);
-            console.log($this.val());
             var data = {
-                "name" : $this.val(),
-                "_token" : _token
+                'sUserName' : $this.val()
             };
-            team.service._getUserByName(data, {
+            team.service._getUsersByName(data, {
                 success: function (response) {
-
+                    if(response.status == true){
+                        var $ul = $(response.view);
+                        var $thisPosition = $this.offset();
+                        $ul.offset({
+                            "top"   : $thisPosition.top - 40
+                        });
+                        $('.team-form-add-user').append($ul);
+                        $ul.show();
+                    }
                 },
                 done: function (response) {
-                    console.log(response);
+                    //console.log(response);
                 }
             })
         }

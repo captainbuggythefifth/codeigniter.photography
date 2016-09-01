@@ -61,10 +61,15 @@ $route['logout'] = 'AuthController/logout';
 $route['users'] = 'UsersController/index';
 $route['users'] = 'UsersController/index';
 
-$route['users/(:any)']['get'] = 'UsersController/getUpdate/$1';
-$route['users/(:any)']['post'] = 'UsersController/postUpdate/$1';
+$route['users/(:num)']['get'] = 'UsersController/getUpdate/$1';
+$route['users/(:num)']['post'] = 'UsersController/postUpdate/$1';
 
 $route['albums'] = 'AlbumsController/index';
+
+$route['teams']['get'] = 'TeamsController/index';
+$route['teams']['post'] = 'TeamsController/postAdd';
+
+$route['users/getUsersByName']['get'] = 'UsersController/getUsersByName';
 
 $route['facebook/login-callback'] = "FacebookController/loginCallback";
 

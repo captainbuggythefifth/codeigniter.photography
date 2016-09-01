@@ -1,22 +1,23 @@
 <?php
 
 
-class UsersController extends CI_Controller
+class TeamsController extends CI_Controller
 {
     function __construct()
     {
         parent::__construct();
         $this->load->library('AuthLibrary', null, 'AuthLibrary');
         $this->load->model('UsersModel');
+        $this->load->model('TeamsModel');
     }
 
     public function index()
     {
-        $aUsers = $this->UsersModel->getUsers();
+        $aTeams = $this->TeamsModel->getTeams();
 
-        $aData['aUsers'] = $aUsers;
+        $aData['aTeams'] = $aTeams;
         $this->load->view('app/layouts/header');
-        $this->load->view('app/manage/users/index', $aData);
+        $this->load->view('app/manage/teams/index', $aData);
         $this->load->view('app/layouts/footer');
     }
 
@@ -44,12 +45,4 @@ class UsersController extends CI_Controller
         }
     }
     
-    public function getUsersByName(){
-        $sUserName = $this->input->get('sUserName');
-
-        $aData = $this->UsersModel->getUsersByName($sUserName);
-        $aData['view'] = $this->load->view('app/manage/teams/segments/add-user/index', $aData['data'], true);
-
-        echo json_encode($aData);
-    }
 }

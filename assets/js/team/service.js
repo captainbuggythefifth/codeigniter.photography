@@ -1,9 +1,9 @@
 var team = team || {};
 
 team.service = {
-    _getUserByName: function (data, callback) {
+    _getUsersByName: function (data, callback) {
         $.ajax({
-            url: '/api/users',
+            url: '/users/getUsersByName',
             data : data,
             type: 'GET',
             dataType: "JSON",

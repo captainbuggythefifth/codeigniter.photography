@@ -2,12 +2,15 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class UsersModel extends CI_Model{
+class TeamsModel extends CI_Model{
     private $table;
+
+    public $iStatusActive = 1;
+    public $iStatusRemoved = 2;
 
     function __construct(){
         parent::__construct();
-        $this->table = "users";
+        $this->table = "teams";
         $this->load->library('encryption');
     }
 
@@ -143,23 +146,15 @@ class UsersModel extends CI_Model{
         return $aResult;
     }
 
-    function getUsersByName($sUserName){
-        $aResult = array(
-            'status' => false,
-            'data'  => array()
-        );
-
-        $this->db->like('first_name', $sUserName, 'both');
-        $this->db->or_like('last_name', $sUserName, 'both');
-        $this->db->or_like('nick_name', $sUserName, 'both');
-        $this->db->or_like('email', $sUserName, 'both');
-
-        $oResult = $this->db->get($this->table);
-        if($oResult){
-            $aResult['status'] = true;
-            $aResult['data']['aUsers'] = $oResult->result_array();
+    function getTeams(){
+        $this->db->where('status', $this->iStatusActive);
+        $result = $this->db->get($this->table);
+        $aTeams = $result->result_array();
+        for($i = 0; $i < count($aTeams); $i++){
+            $oResult = $this->db->query("SELECT * FROM users WHERE id = " . $aTeams[$i]['user_id']);
+            $aTeams[$i]['aUser'] = $oResult->row_array();
         }
-        return $aResult;
+        return $aTeams;
     }
 
 }
