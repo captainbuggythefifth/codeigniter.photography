@@ -44,5 +44,17 @@ class TeamsController extends CI_Controller
             redirect(base_url('users/' . $aUser['id']));
         }
     }
+
+    public function postCreate(){
+        $iUserID = $this->input->post('iUserID');
+        $aUser = $this->UsersModel->getUserByID($iUserID);
+        $aResult = $this->TeamsModel->create($iUserID);
+        $aData['data']['aTeam']['id'] = $aResult['data']['iTeamID'];
+        $aData['data']['aTeam']['aUser'] = $aUser['data'];
+        if($aResult['status'] == true){
+            $aResult['view'] = $this->load->view('app/manage/teams/segments/table/tr/index', $aData['data'], true);
+        }
+        echo json_encode($aResult);
+    }
     
 }

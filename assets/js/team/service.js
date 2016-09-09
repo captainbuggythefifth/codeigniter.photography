@@ -7,11 +7,25 @@ team.service = {
             data : data,
             type: 'GET',
             dataType: "JSON",
-            success: function(result){
-                callback && callback.success(result);
+            success: function(response){
+                callback && callback.success(response);
             }
-        }).always(function(data){
-            callback && callback.done(data);
+        }).always(function(response){
+            callback && callback.done(response);
         });
+    },
+
+    _addUser: function (data, callback) {
+        $.ajax({
+            url : '/teams',
+            data : data,
+            type : "POST",
+            dataType: "JSON",
+            success: function(response){
+                callback && callback.success(response);
+            }
+        }).always(function(response){
+            callback && callback.done(response);
+        })
     }
 }

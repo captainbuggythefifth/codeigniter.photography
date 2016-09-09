@@ -135,9 +135,15 @@
 
 </script>
 
+<script src="//fezvrasta.github.io/snackbarjs/dist/snackbar.min.js"></script>
+
 <script src="/assets/js/team/service.js"></script>
 <script src="/assets/js/team/core.js"></script>
 <script src="/assets/js/team/ui.js"></script>
+
+
+
+
 
 <script>
     var $photos = [];

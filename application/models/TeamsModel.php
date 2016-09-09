@@ -14,7 +14,7 @@ class TeamsModel extends CI_Model{
         $this->load->library('encryption');
     }
 
-    function create($aUser){
+    /*function create($aUser){
 
         $aResult = array(
             'status' => false,
@@ -34,7 +34,7 @@ class TeamsModel extends CI_Model{
         $result = $this->db->insert_id();
         return $result;
 
-    }
+    }*/
 
     function checkUserEmail($sEmail){
         $this->db->where('email', $sEmail);
@@ -155,6 +155,32 @@ class TeamsModel extends CI_Model{
             $aTeams[$i]['aUser'] = $oResult->row_array();
         }
         return $aTeams;
+    }
+
+    function create($iUserID){
+        $aResult = array(
+            'status' => false,
+            'data'  => array()
+        );
+        $aUser = array(
+            'user_id' => $iUserID
+        );
+        $this->db->insert($this->table, $aUser);
+        $oResult = $this->db->insert_id();
+        if($oResult){
+            $aResult = array(
+                'status' => true,
+                'data'  => array(
+                    'message' => "Successfully added a new user to the Team!",
+                    'iTeamID' => $oResult
+                )
+            );
+        }else{
+            $aResult['data']  = array(
+                'message'    => "Something went wrong. Please try again"
+            );
+        }
+        return $aResult;
     }
 
 }

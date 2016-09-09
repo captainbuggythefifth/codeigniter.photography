@@ -67,7 +67,9 @@ $route['users/(:num)']['post'] = 'UsersController/postUpdate/$1';
 $route['albums'] = 'AlbumsController/index';
 
 $route['teams']['get'] = 'TeamsController/index';
-$route['teams']['post'] = 'TeamsController/postAdd';
+$route['teams']['post'] = 'TeamsController/postCreate';
+
+$route['ratings']['get'] = 'RatingsController/index';
 
 $route['users/getUsersByName']['get'] = 'UsersController/getUsersByName';
 

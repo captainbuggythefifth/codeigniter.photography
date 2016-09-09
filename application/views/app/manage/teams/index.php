@@ -3,11 +3,12 @@
         <form class="team-form-add-user" action="/teams" method="post">
             <div class="form-group label-floating">
                 <label class="control-label" for="team-add-user">Type in Name or Email of User</label>
-                <input class="form-control team-add-user" id="team-add-user" type="text">
+                <input class="form-control team-add-user" id="team-add-user" type="text" data-user-id="">
+                <input class="team-user-id" id="team-add-user" type="hidden">
             </div>
             <button type="submit" class="btn btn-danger">ADD USER</button>
         </form>
-        <table class="table table-hover">
+        <table class="table table-hover team-table">
             <thead>
             <tr>
                 <th>#</th>

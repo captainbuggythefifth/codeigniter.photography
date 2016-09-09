@@ -155,7 +155,7 @@ class UsersModel extends CI_Model{
         $this->db->or_like('email', $sUserName, 'both');
 
         $oResult = $this->db->get($this->table);
-        if($oResult){
+        if($oResult->num_rows() > 0){
             $aResult['status'] = true;
             $aResult['data']['aUsers'] = $oResult->result_array();
         }

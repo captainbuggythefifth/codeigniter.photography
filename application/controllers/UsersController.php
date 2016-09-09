@@ -48,7 +48,8 @@ class UsersController extends CI_Controller
         $sUserName = $this->input->get('sUserName');
 
         $aData = $this->UsersModel->getUsersByName($sUserName);
-        $aData['view'] = $this->load->view('app/manage/teams/segments/add-user/index', $aData['data'], true);
+        if($aData['status'] == true)
+            $aData['view'] = $this->load->view('app/manage/teams/segments/add-user/index', $aData['data'], true);
 
         echo json_encode($aData);
     }
